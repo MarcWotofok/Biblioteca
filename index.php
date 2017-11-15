@@ -35,6 +35,15 @@
 			$vista->show("IntAdmin",$datos);
 			
 			break;
+		case "modificarLibro":
+		
+			$id_libro=2;
+			$resultado= $libro->update($id_libro);
+			
+			$datos["libros"] = $resultado;
+			
+			$vista->show("modificarLibro", $datos);
+			break;	    
     }
 
 ?>
