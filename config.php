@@ -42,7 +42,15 @@
             $db->close();
             return $tabla;
 		}
-
+	public function update($id_libro){
+			
+		$conexdb=new mysqli("localhost","root","","biblio");
+		$select = $conexdb->query("select * from libros where id_libro = '$id_libro'");
+		$tabla = $select->fetch_array();
+		$conexdb->close();
+            	return $tabla;
+	
+	}
 	}
 
 ?>
