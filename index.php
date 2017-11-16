@@ -43,7 +43,10 @@
 			$datos["libros"] = $resultado;
 			
 			$vista->show("modificarLibro", $datos);
-			break;	    
+			break;	
+		case "showInsertLibro":
+			$vista->show("inserLibro");
+			break;
     }
 
 ?>
