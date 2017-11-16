@@ -15,7 +15,7 @@
 
 
             $tablaUsuario = $datos["tabla"];
-			echo "<a href='index.php?accion=insertarLibro'>Insertar</a>";
+			echo "<a href='index.php?accion=showInsertLibro'>Insertar</a>";
             foreach ($tablaUsuario as $usu) {
                 echo "<tr>
                         <td>".$usu[0]."</td>
