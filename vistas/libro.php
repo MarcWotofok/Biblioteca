@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen" />
-		
+		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
 		<script type="text/javascript" src="extras/jquery-ui-1.8.20.custom.min.js"></script>
 		<script type="text/javascript" src="extras/jquery.mousewheel.min.js"></script>
@@ -55,9 +55,10 @@
 	</head>
 	<body>
 		<div id="bloque" class="animate">
+		
 			<button type="button" class="close cerrar" data-dismiss="modal">×</button>
-			<a href="#" class="next_page a">Siguiente</a>
-			<a href="#" class="prev_page">Anterior</a>
+			<a href="#" class="next_page a"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="#" class="prev_page"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
 			<div id="flipbook" class="animated ">
 				
 				<?php
