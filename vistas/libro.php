@@ -40,6 +40,7 @@
 				},3000);*/
 				
 		</script>
+ 
 
 
 		<div id="bloque" class="animate">
@@ -49,8 +50,11 @@
 			<div id="flipbook" class="animated ">
 				
 				<?php
-					$num_pag = 5;
+					
 					$libro = $_REQUEST["idlibro"];
+					$directorio = "../imgs/books/$libro";
+					$arrayPag = scandir($directorio);
+					$num_pag = count($arrayPag)-2;
 
 					for($i = 0;$i<$num_pag;$i++){
 						if((($i==0 || $i==1) || $i==$num_pag-1) || $i==$num_pag-2)
