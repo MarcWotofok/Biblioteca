@@ -28,7 +28,6 @@
 			$( document ).ready(function() {
 			   	$('.efectBook').click(function(){
 			   					idlibro = $(this).attr("idlibro");
-			   					alert("Voy a pedir por ajax el libro" + idlibro);
 								$('#modal-body').load('vistas/libro.php', {'idlibro': idlibro});
 				})
 			});
