@@ -82,7 +82,7 @@ body{
 	
 }
 .estanteria img{
-	width: 50%;
+	width: 60%;
     height: 22%;
     float: left;
     text-align: center;
@@ -152,7 +152,7 @@ body{
 
 
 .fondo{
-	background: url(textura6.jpg);
+	background: url(textura3.jpg);
 }
 
 .columna{
