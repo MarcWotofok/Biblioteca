@@ -10,7 +10,6 @@
 		<script type="text/javascript" src="lib/hash.js"></script>
 		<script  type="text/javascript" src="js/jquery-3.2.1.js"></script>
 		<script type="text/javascript" src="js/turn.js"></script>
-		
 		<script type="text/javascript">
 			$(document).ready(function(){
 				
@@ -22,58 +21,38 @@
 					duration:2500
 				
 				});
-			//abrir libro
+				//abrir libro
 				setTimeout(function() {
 					$('#flipbook').turn('page', 2);
-					},1000);
-				});
-			//agrega la funcion para la accion del link pagina previa
-				 $('.prev_page').click(function(){
-				  $('#flipbook').turn('previous');
-				 });
-				 
-			//agrega la funcion para la accion del link pagina siguiente
-				 $('.next_page').click(function(){
-				  $('#flipbook').turn('next');
-				 });
-				 
-			//capturar teclas derecha e izquierda
+				},1000);
+			});
 			
-			//zoom
-				$('#flipbook').turn('zoom', 0.5, 0);
-				
-				$('#flipbook').bind('zooming', function(event,  newZoomValue, currentZoomValue) {
-				  alert('New zoom: '+currentZoomValue);
-				});
-				
+			
 			//desaperecer libro
-				/*setTimeout(function() {
-				$('#flipbook').fadeOut(1500);
+			/*setTimeout(function() {
+					$('#flipbook').fadeOut(1500);
 				},3000);*/
 				
 		</script>
 	</head>
 	<body>
 		<div id="bloque" class="animate">
-			<button type="button" class="close cerrar" data-dismiss="modal">×</button>
-			<a href="#" class="next_page a">Siguiente</a>
-			<a href="#" class="prev_page">Anterior</a>
 			<div id="flipbook" class="animated ">
-				
 				<?php
 					$num_pag = $datos["num_pags"];
 					$libro = $datos["libro"];
 
 					for($i = 0;$i<$num_pag;$i++){
-						if((($i==0 || $i==1) || $i==$num_pag-1) || $i==$num_pag-2)
-							echo"<div class=\"hard\"> <img src=\"imgs/books/$libro/$i.jpg\" /> </div>";
-						else
-							echo "<div class=\"pag\"> <img src=\"imgs/books/$libro/$i.jpg\" /> </div>";
-					}
+                    if((($i==0 || $i==1) || $i==$num_pag-1) || $i==$num_pag-2)
+                        echo"<div class=\"hard\"> <img src=\"imgs/books/$libro/$i.jpg\" /> </div>";
+                    else
+                        echo "<div class=\"pag\"> <img src=\"imgs/books/$libro/$i.jpg\" /> </div>";
+                }
 				?>
-				
 			</div>
 			
 		</div>
+		
+		
 	</body>
 </html>
