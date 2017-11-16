@@ -21,15 +21,7 @@
 		
 			break;
 		
-		case "showLibro":
-
-			$id=$_REQUEST["intro"];
-			$num_pag=$libro->get_pags($id)["num_pag"];
-			$datos["num_pags"] = $num_pag;
-			$datos["libro"] = $id;
-			$vista->show("libro", $datos);
-
-			break;
+		
 		case "showIntAdmin":
 			$datos["tabla"] = $libro->get_info();
 			$vista->show("IntAdmin",$datos);
