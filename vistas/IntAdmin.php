@@ -27,7 +27,7 @@
                         <td>".$usu[6]."</td>
                         <td>".$usu[7]."</td>
                         <td>".$usu[8]."</td>
-                        <td><a href='index.php?accion=borrarLibro&id=".$usu[0]."'>Eliminar</a></td>
+                        <td><a href='index.php?accion=deleteLibro&id=".$usu[0]."'></a></td>
                         <td><a href='index.php?accion=modificarLibro&id=".$usu[0]."'>Modificar</a></td>
                        </tr>";
             }
