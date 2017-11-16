@@ -2,6 +2,16 @@
 <html>
 	<head>
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen" />
+		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+		<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+		<script type="text/javascript" src="extras/jquery-ui-1.8.20.custom.min.js"></script>
+		<script type="text/javascript" src="extras/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
+		<script type="text/javascript" src="lib/hash.js"></script>
+		<script  type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="js/turn.js"></script>
+		<script src="js/bootstrap.min.js"></script>	
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link href="css/hover.css" rel="stylesheet" media="all">
 		
@@ -9,26 +19,21 @@
 		
 		
 		<link rel="stylesheet" href="css/animate.css">
-		<script>
-			//Rellena el div de la ventana modal con el libro.php
-			
-			$('.im').on('click',function(){
-				$('.modal-body').load('libro.php',function(){
-					$('#ventana2').modal({show:true});
-				});
-			});
-			
-			  
-			/*function cambiarcont(pagina) {
-			$(“#contenido”).load(pagina);
-			}*/
-			//$('.ejemplo').load('libro.php');//actualizas el div
-			//}, 1000 );
-			
-		</script>
 		
 	</head>
 	<body>
+		<script>
+			//Rellena el div de la ventana modal con el libro.php
+			
+			$( document ).ready(function() {
+			   	$('.efectBook').click(function(){
+			   					idlibro = $(this).attr("idlibro");
+			   					alert("Voy a pedir por ajax el libro" + idlibro);
+								$('#modal-body').load('vistas/libro.php', {'idlibro': idlibro});
+				})
+			});
+			
+		</script>
 		<div class="container ">
 			<div class="row">
 				<div class="col-md-5" style="margin-top: 10%">
@@ -56,7 +61,7 @@
 												//Sacamos las portadas de los libros
 												
 													echo "<td class='columna'>";
-														echo "<a href='index.php?accion=showLibro&intro=$ides[id_libro]' data-toggle='modal' data-target='#ventana2' ><img id='im' class='efectBook'src='imgs/books/$ides[id_libro]/0.jpg' height='250px' width='200px'></a>";
+														echo "<img data-toggle='modal' data-target='#ventana2' idlibro='".$ides['id_libro']."' class='efectBook' src='imgs/books/$ides[id_libro]/0.jpg' height='250px' width='200px'>";
 													echo "</td>";	
 												
 											}
@@ -86,7 +91,7 @@
 								<h4 class="modal-title">Titulo Libro</h4>
 							</div>
 							<!-- Cuerpo de modal carga el libro.php -->
-							<div class="modal-body">
+							<div class="modal-body" id="modal-body">
 										
 							</div>
 							<div class="modal-footer">
@@ -99,7 +104,5 @@
 			<a href="index.php?accion=showIntAdmin" class="btn btn-primary btn-lg" data-toggle="modal">Administrar</a>		
 		</div>
 
-	<script src="js/jquery.js"></script>	
-	<script src="js/bootstrap.min.js"></script>	
 	</body>
 </html>
