@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<a href="#ventana1" class="btn btn-primary btn-lg" data-toggle="modal">Ver libros en nuestra biblioteca</a>			
-			<a href="index.php?accion=modificarLibro" class="btn btn-primary btn-lg" data-toggle="modal"></a>			
+			<a href="index.php?accion=showIntAdmin" class="btn btn-primary btn-lg" data-toggle="modal">Administrar</a>		
 		</div>
 
 	<script src="js/jquery.js"></script>	
