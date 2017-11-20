@@ -29,6 +29,7 @@
                         <td>".$usu[8]."</td>
                         <td><a href='index.php?accion=deleteLibro&id=".$usu[0]."'></a></td>
                         <td><a href='index.php?accion=modificarLibro&id=".$usu[0]."'>Modificar</a></td>
+                        <td><a href='index.php?accion=showInsertImg&id=".$usu[0]."'>Insertar Pagina</a></td>
                        </tr>";
             }
             echo "</table>";
