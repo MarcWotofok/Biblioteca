@@ -49,14 +49,26 @@
 			$datos = $_REQUEST["id"];
 			$vista->show("insertimg",$datos);
 		break;
+
 		case "procesarInsertImg":
 			$id_libro = $_REQUEST["id"];
 			$pag_ant = $_REQUEST["pagina_ant"];
 			$num_pag = $_REQUEST["num_pag"];
+			
 			$libro->renomDir($id_libro,$pag_ant,$num_pag);
 			$libro->insertarImagen($id_libro, $pag_ant);
+
 			$datos = $_REQUEST["id"];
 			$vista->show("insertImg",$datos);
+		break;
+
+		case "insertLibro":
+			$resultado = $libro->insertLibro();
+			
+			if($resultado){
+				$datos["tabla"] = $libro->get_info();
+				$vista->show("IntAdmin",$datos);
+			}
 		break;
     }
 
