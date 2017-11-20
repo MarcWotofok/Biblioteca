@@ -8,9 +8,8 @@
                         <td>Editorial</td>
                         <td>Lugar de edicion</td>
                         <td>Fecha de edicion</td>
-                        <td>Numero de paginas</td>
                         <td>ISBN</td>
-                        <td>Disponibilidad</td>
+                        <td>tipo</td>
                        </tr>";
 
 
@@ -26,7 +25,6 @@
                         <td>".$usu[5]."</td>
                         <td>".$usu[6]."</td>
                         <td>".$usu[7]."</td>
-                        <td>".$usu[8]."</td>
                         <td><a href='index.php?accion=deleteLibro&id=".$usu[0]."'></a></td>
                         <td><a href='index.php?accion=modificarLibro&id=".$usu[0]."'>Modificar</a></td>
                         <td><a href='index.php?accion=showInsertImg&id=".$usu[0]."'>Insertar Pagina</a></td>

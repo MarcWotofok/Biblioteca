@@ -55,7 +55,7 @@
 										"<input type='hidden' name='id' value='$idlibro'>".
 										"<input type='hidden' name='num_pag' value='$num_pag'>".
 										"<input type='hidden' name='pagina_ant' value='".($i-1)."'>".
-										"<input class='file-input' name='fichero' accept='image/*' type='file' id='input' multiple='true' onchange='handleFiles(this.files)'/>".
+										"<input type='file' class='file-input' name='fichero' accept='image/*'  id='input' multiple='true' onchange='handleFiles(this.files)'/>".
 										"<input type='submit'/>".
 										"</form><br/>";
 							echo "<button>Borrar</button>";
