@@ -33,13 +33,29 @@
             return $resultado;
 			
 		}
-
+		//renombrar imagenes
 		public function renomDir($id_libro,$pag_ant,$num_pag){
 			for($i=$num_pag-1;$i>$pag_ant;$i--){
 				$oldDir="imgs/books/$id_libro/".$i.".jpg";
 				$newDir="imgs/books/$id_libro/".($i+1).".jpg";
 				rename($oldDir,$newDir);
 			}
+		}
+
+		//crear carpeta con el siguiente id de la base de datos
+		public function crearCarpeta($id_anterior){
+			
+			$id_libronuevo=$id_anterior-1;
+			
+			//mkdir("imgs/books/pedro");
+
+		}
+		public function getmaxIDLibro(){
+			$conexdb=new mysqli("localhost","root","","biblio");
+			$select = $conexdb-> query("SELECT MAX(id_libro) from libros");
+		
+			$ArrayMax = $select->fetch_array();
+			return $ArrayMax;
 		}
 
 		public function insertarImagen($id_libro, $pag_ant) {
@@ -59,7 +75,8 @@
 
 		public function insertarImgsLibros($id_libro) {
 			
-			$target_file = "imgs/books/$id_libro/" . ($pag_ant + 1). ".jpg";
+
+			$target_file = "imgs/books/$id_libro/jpg";
 			//$target_file = "imgs/books/$id_libro/" . $_FILES["fichero"]["name"];
 			echo $target_file;
 			$uploadOk = 1;

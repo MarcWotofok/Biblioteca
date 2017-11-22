@@ -29,7 +29,7 @@
 			break;
 			
 		case "modificarLibro":
-		
+			
 			$id_libro=$_REQUEST["id"];
 			$resultado= $libro->update($id_libro);
 			
@@ -38,7 +38,8 @@
 			$vista->show("modificarLibro", $datos);
 			break;	
 		case "showInsertLibro":
-			$vista->show("inserLibro");
+			$datos["id_libro"]= $libro->getmaxIDLibro();
+			$vista->show("inserLibro",$datos);
 			break;
 			
 		case "deleteLibro":
@@ -59,6 +60,14 @@
 			$libro->insertarImagen($id_libro, $pag_ant);
 			$datos = $_REQUEST["id"];
 			$vista->show("insertImg",$datos);
+		break;
+		case "insertLibro":
+			$id=$_REQUEST("id_libro");
+			//$resultado = $libro->insertLibro();
+			$id_libronuevo = $libro->crearCarpeta($id_anterior);
+
+			$datos["tabla"] = $libro->get_info();
+			$vista->show("IntAdmin",$datos);
 		break;
     }
 

@@ -39,6 +39,8 @@
 	</head>
 
 <?php // Formulario de registro de libros
+	$id_libro = $datos["id_libro"];
+
 echo"
 
 	<h1>Insertar libro</h1>
@@ -50,7 +52,8 @@ echo"
 		Fecha de edición <input type='text' name='fecha'><br/>
 		ISBN <input type='text' name='isbn'><br/>
 		Tipo <input type='text' name='tipo'><br/>
-    	<input type='file' class='file-input' name='fichero' accept='image/*'  id='input' multiple='true' onchange='handleFiles(this.files)'/><br/><br/>
+		<input type='hidden' name='id_libro' value='$id_libro[0]'/>
+    	<input type='file' class='file-input' name='fichero' accept='image/jpg'  id='input' multiple='true' onchange='handleFiles(this.files)'/><br/><br/>
 		<input type='hidden' name='accion' value='insertLibro'/>
 		<input type='submit'>
     
