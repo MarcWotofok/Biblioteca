@@ -70,7 +70,7 @@ body{
 	font-size:43px;
 	margin-top:-40px;
 }
-.estanteria{
+/*.estanteria{
 	background: url(wall-bookshelf.png);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -81,9 +81,10 @@ body{
     content: "";
 	
 }
+*/
 .estanteria img{
-	width: 60%;
-    height: 22%;
+	width: 75px;
+    height: 90px;
     float: left;
     text-align: center;
     position: relative;
@@ -152,13 +153,20 @@ body{
 
 
 .fondo{
-	background: url(textura3.jpg);
+	background: url(estanteria-2.jpg);
+	width:100%;
+	height:auto;
+	
 }
-
 .columna{
-	width:175px;
+	width:115px;
+	margin-left:50px;
 }
 	
-		
+#tablaadmin{
+	width: 90% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}	
 
 		
