@@ -1,27 +1,40 @@
 <?php
+	include_once ("basedatos.php");
 	class Libro{
 
-		
-		private $pag;
+		private $db;
+
+		public function __construct() {
+			$this->db = new Basedatos();
+		}
         
 		public function get_info(){
-			$db = new mysqli("localhost", "root", "", "biblio");
-            $select = $db->query("SELECT * FROM libros");
-            $tabla = $select->fetch_all();
-            $db->close();
+			//$db = new mysqli("localhost", "root", "", "biblio");
+            //$select = $db->query("SELECT * FROM libros");
+            //$tabla = $select->fetch_all();
+            //$db->close();
+
+            $this->db->conectar();
+            $tabla = $this->db->consulta("SELECT * FROM libros");
+            $this->db->desconectar();
             return $tabla;
 		}
 		public function update($id_libro){
-				
-			$conexdb=new mysqli("localhost","root","","biblio");
+
+			/*$conexdb=new mysqli("localhost","root","","biblio");
 			$select = $conexdb->query("select * from libros where id_libro = '$id_libro'");
 			$tabla = $select->fetch_array();
-			$conexdb->close();
-					return $tabla;
+			$conexdb->close();*/
+
+			$this->db->conectar();
+            $tabla = $this->db->consulta("SELECT * from libros where id_libro = '$id_libro'");
+            $this->db->desconectar();
+			
+			return $tabla;
 		
 		}
 		public function deleteLibro($id_libro){
-			$conexdb=new mysqli("localhost","root","","biblio");
+			/*$conexdb=new mysqli("localhost","root","","biblio");
 			$select = $conexdb-> query("Delete  from libros WHERE id_libro='$id_libro'");
 
             if($conexdb->affected_rows==1) {
@@ -29,8 +42,12 @@
             }else {
                 $resultado= false;
             }
-
-            return $resultado;
+            */
+            $this->db->conectar();
+            $res = $this->db->manipula("Delete  from libros WHERE id_libro='$id_libro'");
+            $this->db->desconectar();
+         	
+            return $res;
 			
 		}
 		//renombrar imagenes
@@ -43,19 +60,18 @@
 		}
 
 		//crear carpeta con el siguiente id de la base de datos
-		public function crearCarpeta($id_anterior){
-			
-			$id_libronuevo=$id_anterior-1;
-			
-			//mkdir("imgs/books/pedro");
-
-		}
+		
 		public function getmaxIDLibro(){
-			$conexdb=new mysqli("localhost","root","","biblio");
+			/*$conexdb=new mysqli("localhost","root","","biblio");
 			$select = $conexdb-> query("SELECT MAX(id_libro) from libros");
 		
-			$ArrayMax = $select->fetch_array();
-			return $ArrayMax;
+			$ArrayMax = $select->fetch_array();*/
+
+			$this->db->conectar();
+            $tabla = $this->db->consulta("SELECT MAX(id_libro) from libros");
+            $this->db->desconectar();
+
+			return $tabla;
 		}
 
 		public function insertarImagen($id_libro, $pag_ant) {
@@ -91,7 +107,7 @@
 		}
 
 		public function insertLibro(){
-			$conexdb=new mysqli("localhost","root","","biblio");
+			
 
 			$titulo=$_REQUEST["titulo"];
 			$autor=$_REQUEST["autor"];
@@ -101,6 +117,8 @@
 			$isbn=$_REQUEST["isbn"];
 			$tipo=$_REQUEST["tipo"];
 
+			/*
+			$conexdb=new mysqli("localhost","root","","biblio");
 			$select = $conexdb-> query("INSERT INTO libros(id_libro,titulo,autor,editorial,lugar_edicion,fecha_edicion,ISBN,tipo) VALUES ('$titulo','$autor','$editorial','$lugar','$fecha','$fecha','$isbn','$tipo')");
 
 			if($conexdb->affected_rows==1) {
@@ -108,8 +126,12 @@
             }else {
                 $resultado= false;
             }
-
-            return $resultado;
+			*/
+            $this->db->conectar();
+            $res = $this->db->manipula("INSERT INTO libros(id_libro,titulo,autor,editorial,lugar_edicion,fecha_edicion,ISBN,tipo) VALUES ('$titulo','$autor','$editorial','$lugar','$fecha','$fecha','$isbn','$tipo')");
+            $this->db->desconectar();
+         	
+            return $res;
 		}
 	}
 
