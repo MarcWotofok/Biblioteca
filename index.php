@@ -7,7 +7,13 @@
 	
     $vista = new Vista();
 	$libro = new Libro();
-	
+
+	//Para descargar biches
+	//header("Content-Type: application/octet-stream");
+	//header("Content-Disposition: attachment; filename=download.pdf");
+	//header("Content-Transfer-Encoding: binary");
+	//readfile(imgs/books/6/download.pdf);
+
     if (isset($_REQUEST["accion"]))
         $accion = $_REQUEST["accion"];
     else
@@ -29,7 +35,7 @@
 			break;
 			
 		case "modificarLibro":
-			
+		
 			$id_libro=$_REQUEST["id"];
 			$resultado= $libro->update($id_libro);
 			
@@ -38,8 +44,7 @@
 			$vista->show("modificarLibro", $datos);
 			break;	
 		case "showInsertLibro":
-			$datos["id_libro"]= $libro->getmaxIDLibro();
-			$vista->show("inserLibro",$datos);
+			$vista->show("inserLibro");
 			break;
 			
 		case "deleteLibro":
@@ -60,14 +65,6 @@
 			$libro->insertarImagen($id_libro, $pag_ant);
 			$datos = $_REQUEST["id"];
 			$vista->show("insertImg",$datos);
-		break;
-		case "insertLibro":
-			$id=$_REQUEST("id_libro");
-			//$resultado = $libro->insertLibro();
-			$id_libronuevo = $libro->crearCarpeta($id_anterior);
-
-			$datos["tabla"] = $libro->get_info();
-			$vista->show("IntAdmin",$datos);
 		break;
     }
 
