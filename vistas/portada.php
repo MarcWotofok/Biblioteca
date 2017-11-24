@@ -86,11 +86,11 @@
 			<div class="modal fade" id="ventana2" role="dialog">
 				<div class="modal-dialog modal-lg" >
 					<!-- Modal content background-color:transparent;  -->
-						<div class="modal-content" style=" width: 135%;margin-left: -165px; -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.5);">
+						<div class="modal-content" style=" width: 135%;margin-left: -165px; -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.5);background-color:transparent;border: none;">
 							<!-- Aqui vendria el titulo del LIBRO -->
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">×</button>
-								<h4 class="modal-title">Titulo Libro</h4>
+								<h4 class="modal-title" style="color:white; text-align:center;font-size:20px">Titulo Libro</h4>
 							</div>
 							<!-- Cuerpo de modal carga el libro.php -->
 							<div class="modal-body" id="modal-body">
