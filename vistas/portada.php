@@ -31,6 +31,14 @@
 						$('#modal-body').load('vistas/libro.php', {'idlibro': idlibro});
 				})
 			});
+			$(document).ready(function(){
+			    $(".ocultar").click(function(){
+			        $("#ventana1").hide();
+			    });
+			    $(".show").click(function(){
+			        $("#ventana1").show();
+			    });
+			});
 			
 		</script>
 		<div class="container ">
@@ -63,7 +71,7 @@
 													$i++;
 													//Sacamos las portadas de los libros
 														echo "<td class='columna'>";
-															echo "<img data-toggle='modal' data-target='#ventana2' idlibro='".$ides['id_libro']."' class='efectBook' src='imgs/books/$ides[id_libro]/0.jpg' height='250px' width='200px'>";
+															echo "<img data-toggle='modal' data-target='#ventana2' idlibro='".$ides['id_libro']."' class='efectBook ocultar' src='imgs/books/$ides[id_libro]/0.jpg' height='250px' width='200px'>";
 														echo "</td>";
 														if ($i%4 == 0)	echo "</tr><tr>";
 													}
@@ -89,7 +97,7 @@
 						<div class="modal-content" style=" width: 135%;margin-left: -165px; -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.5);background-color:transparent;border: none;">
 							<!-- Aqui vendria el titulo del LIBRO -->
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">×</button>
+								<button type="button" class="close show" data-dismiss="modal">×</button>
 								<h4 class="modal-title" style="color:white; text-align:center;font-size:20px">Titulo Libro</h4>
 							</div>
 							<!-- Cuerpo de modal carga el libro.php -->
