@@ -27,9 +27,18 @@
 			
 			$( document ).ready(function() {
 			   	$('.efectBook').click(function(){
-			   			idlibro = $(this).attr("idlibro");
-						$('#modal-body').load('vistas/libro.php', {'idlibro': idlibro});
+			   					idlibro = $(this).attr("idlibro");
+								$('#modal-body').load('vistas/libro.php', {'idlibro': idlibro});
 				})
+			});
+
+			$(document).ready(function(){
+			    $(".ocultar").click(function(){
+			        $("#ventana1").hide();
+			    });
+			    $(".show").click(function(){
+			        $("#ventana1").show();
+			    });
 			});
 			
 		</script>
@@ -42,35 +51,32 @@
 								<div class="modal-header">
 									<h2 class="modal-title">Biblioteca I.E.S CELIA VIÑAS</h2>
 								</div>
-								<div class="pared">
-									<div class="modal-body fondo">
-										<?php
+								<div class="modal-body fondo">
+									<?php
 
-											$conexdb = new mysqli('localhost','root','','biblio');
-												if (!$conexdb) {
-													die('Error al conectarse a mysql: ' . mysql_error());
-												}
+										$conexdb = new mysqli('localhost','root','','biblio');
+											if (!$conexdb) {
+												die('Error al conectarse a mysql: ' . mysql_error());
+											}
 
-											$consult=$conexdb->query("Select id_libro from libros");
-														
-											$Arrayportada = $consult->fetch_all(MYSQLI_ASSOC);
-												echo "<div class='estanteria'>";		
-													echo "<table style='margin-left: 175px; margin-top: 221px;'>";	
-														echo "<tr>";
-
-												$i = 0;
-												foreach ($Arrayportada as $ides){
-													$i++;
-													//Sacamos las portadas de los libros
-														echo "<td class='columna'>";
-															echo "<img data-toggle='modal' data-target='#ventana2' idlibro='".$ides['id_libro']."' class='efectBook' src='imgs/books/$ides[id_libro]/0.jpg' height='250px' width='200px'>";
-														echo "</td>";
-														if ($i%4 == 0)	echo "</tr><tr>";
-													}
-													echo "</tr></table>";
-												echo "</div>";
-										?>
-									</div>
+										$consult=$conexdb->query("Select id_libro from libros");
+													
+										$Arrayportada = $consult->fetch_all(MYSQLI_ASSOC);
+											echo "<div class='estanteria'>";		
+												echo "<table>";	
+													echo "<tr>";											
+											foreach ($Arrayportada as $ides){
+												//Sacamos las portadas de los libros
+												
+													echo "<td class='columna'>";
+														echo "<img data-toggle='modal' data-target='#ventana2' idlibro='".$ides['id_libro']."' class='efectBook ocultar' src='imgs/books/$ides[id_libro]/0.jpg' height='250px' width='200px'>";
+													echo "</td>";	
+												
+											}
+													echo "</tr>";
+												echo "</table>";
+											echo "</div>";
+									?>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -83,18 +89,18 @@
 				</div>
 			</div>
 			<!-- Ventana emergente LIBRO -->
-			<div class="modal fade" id="ventana2" role="dialog">
+			<div class="modal fade" id="ventana2"  role="dialog" >
 				<div class="modal-dialog modal-lg" >
 					<!-- Modal content background-color:transparent;  -->
-						<div class="modal-content" style=" width: 135%;margin-left: -165px; -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.5);background-color:transparent;border: none;">
+						<div class="modal-content" style=" width: 135%;margin-left: -165px; background-color:transparent; -webkit-box-shadow: 0 0px 0px rgba(0,0,0,.5);">
 							<!-- Aqui vendria el titulo del LIBRO -->
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">×</button>
-								<h4 class="modal-title" style="color:white; text-align:center;font-size:20px">Titulo Libro</h4>
+								<button type="button" class="close show" data-dismiss="modal">×</button>
+								<h4 class="modal-title">Titulo Libro</h4>
 							</div>
 							<!-- Cuerpo de modal carga el libro.php -->
 							<div class="modal-body" id="modal-body">
-										<!-- Cargamos con una funcion el libro en ventana emergente -->
+										
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
